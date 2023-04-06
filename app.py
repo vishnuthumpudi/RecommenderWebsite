@@ -11,7 +11,7 @@ app=Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('recommend.html', chaptername = list(final_req['ChapterName'].values),)
+    return render_template('index.html', chaptername = list(final_req['ChapterName'].values),)
 
 @app.route('/recommend_chapters', methods=['post'])
 def recommend():
@@ -24,7 +24,7 @@ def recommend():
         x = final_req.iloc[i[0]].ChapterName
         data.append(x)
     print(data)
-    return render_template('recommend.html',data=data)
+    return render_template('index.html',data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)
