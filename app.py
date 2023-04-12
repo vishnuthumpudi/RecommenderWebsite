@@ -13,7 +13,7 @@ app=Flask(__name__)
 def index():
     return render_template('index.html', chaptername = list(final_req['ChapterName'].values),)
 
-@app.route('/recommend_chapters', methods=['post'])
+@app.route('/recommend_chapters', methods=['get'])
 def recommend():
     user_input = request.form.get('user_input')
     index=final_req[final_req['ChapterName']== user_input].index[0]
